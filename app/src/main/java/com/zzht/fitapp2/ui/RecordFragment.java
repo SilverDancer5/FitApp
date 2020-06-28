@@ -1,0 +1,96 @@
+package com.zzht.fitapp2.ui;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
+import com.zzht.fitapp2.adapter.MyVpFragAdapter;
+import com.zzht.fitapp2.R;
+import com.zzht.fitapp2.fragment.RecordFragment_chest;
+import com.zzht.fitapp2.fragment.RecordFragment_weight;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link RecordFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class RecordFragment extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    public RecordFragment() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment RecordFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static RecordFragment newInstance(String param1, String param2) {
+        RecordFragment fragment = new RecordFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View root=inflater.inflate(R.layout.fragment_record, container, false);
+        ViewPager vp=root.findViewById(R.id.vp_fragments);
+        List<Fragment> fragmentList=new ArrayList<>();
+        MyVpFragAdapter myVpFragAdapter;
+        TabLayout  tabLayout=root.findViewById(R.id.tablayout);
+        String[] titles=new String[]{"体重","胸围","腰围","左臂围","右臂膀","肩宽"};
+
+        fragmentList.add(new RecordFragment_weight());
+        fragmentList.add(new RecordFragment_chest());
+        fragmentList.add(new RecordFragment_weight());
+        fragmentList.add(new RecordFragment_weight());
+        fragmentList.add(new RecordFragment_weight());
+        fragmentList.add(new RecordFragment_weight());
+        for (int i = 0; i < titles.length; i++) {
+            //fragmentList.add(new RecordFragment_weight());
+            tabLayout.addTab(tabLayout.newTab());
+        }
+        tabLayout.setupWithViewPager(vp,false);
+        myVpFragAdapter=new MyVpFragAdapter(getChildFragmentManager(),fragmentList);
+        vp.setAdapter(myVpFragAdapter);
+        for (int i = 0; i < titles.length; i++) {
+            tabLayout.getTabAt(i).setText(titles[i]);
+        }
+        return root;
+    }
+}

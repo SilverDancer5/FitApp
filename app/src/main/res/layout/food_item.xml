@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="@dimen/default_distance">
+
+            <TextView
+                android:id="@+id/tv_food_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="水果"
+                style="@style/text_title"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_below="@+id/tv_food_name"
+                android:layout_marginTop="@dimen/default_distance"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/text_content"
+                    android:text="100克,"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_food_calory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="400"
+                    android:layout_marginLeft="@dimen/default_distance"
+                    style="@style/text_content"
+                    android:textColor="@color/colorAccent"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="大卡"
+                    style="@style/text_content"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+</LinearLayout>

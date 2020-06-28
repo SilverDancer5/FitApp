@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FitApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">首页</string>
+    <string name="menu_own">我的计划</string>
+    <string name="menu_generate">生成计划</string>
+    <string name="menu_record">记录身材</string>
+    <string name="menu_trend">变化趋势</string>
+    <string name="menu_calorie">查询食物热量</string>
+    <string name="menu_consume">查询运动消耗</string>
+
+
+    <string name="home_second">Home Second</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
